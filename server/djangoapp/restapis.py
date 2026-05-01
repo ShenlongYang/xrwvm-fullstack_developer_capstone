@@ -53,3 +53,27 @@ def post_review(data_dict):
         return response.json()
     except:
         print("Network exception occurred")
+
+# Get all dealer from the backend
+def get_dealers():
+    endpoint = '/fetchDealers'
+    dealers = get_request(endpoint)
+    return dealers
+
+#Get dealer by ID from the backend
+def get_dealer_by_id(dealer_id):
+    endpoint = f'/fetchDealer/{dealer_id}'
+    dealer = get_request(endpoint)
+    return dealer
+
+#Get dealers by state from the backend
+def get_dealers_by_state(state):
+    endpoint = f'/fetchDealers/{state}'
+    dealers = get_request(endpoint)
+    return dealers
+
+#Get reviews for a dealer from the backend
+def get_dealer_reviews(dealer_id):
+    endpoint = f'/fetchReviews/dealer/{dealer_id}'
+    reviews = get_request(endpoint)
+    return reviews
